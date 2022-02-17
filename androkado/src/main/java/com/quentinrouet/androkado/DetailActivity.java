@@ -11,6 +11,9 @@ import com.quentinrouet.androkado.databinding.ActivityDetailBinding;
 
 public class DetailActivity extends AppCompatActivity {
 
+
+    public static final String KEY_ARTICLE = "keyArticle";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +34,7 @@ public class DetailActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Toast.makeText(DetailActivity.this, articleTest.getUrl(), Toast.LENGTH_SHORT).show();
                 Intent intentToInfoUrl = new Intent(DetailActivity.this, InfoUrlActivity.class);
+                intentToInfoUrl.putExtra(KEY_ARTICLE, articleTest);
                 startActivity(intentToInfoUrl);
             }
         });

@@ -21,6 +21,7 @@ public class Article implements Parcelable {
         this.isAchete = isAchete;
     }
 
+
     protected Article(Parcel in) {
         nom = in.readString();
         description = in.readString();
