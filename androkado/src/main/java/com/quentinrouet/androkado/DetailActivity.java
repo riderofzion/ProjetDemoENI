@@ -22,13 +22,7 @@ public class DetailActivity extends AppCompatActivity {
         setContentView(activityDetailBinding.getRoot());
 
 
-        Article articleTest = new Article("Pain au chocolat",
-                "Viennoiserie au chocolat",
-                "https://wikipedia.org/wiki/Pain_au_chocolat",
-                1.1f,
-                4.0,
-                true
-        );
+        Article articleTest = getIntent().getParcelableExtra(ArticleAdapter.KEY_ARTICLE);
         activityDetailBinding.imageButtonWeb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

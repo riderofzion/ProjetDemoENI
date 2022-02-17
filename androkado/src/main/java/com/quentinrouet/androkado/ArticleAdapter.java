@@ -41,13 +41,10 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleViewHolder> {
       Article article = dataSetArticles.get(position);
       holder.binding.setArticle(article);
       //Je passe l'article clické à mon DetailActivity
-      holder.itemView.setOnClickListener(new View.OnClickListener() {
-         @Override
-         public void onClick(View view) {
+      holder.itemView.setOnClickListener((View view) -> {
             Intent intentToDetail = new Intent(view.getContext(),DetailActivity.class);
             intentToDetail.putExtra(KEY_ARTICLE,article);
             view.getContext().startActivity(intentToDetail);
-         }
       });
    }
 
