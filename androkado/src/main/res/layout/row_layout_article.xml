@@ -7,32 +7,40 @@
             name="article"
             type="com.quentinrouet.androkado.Article" />
     </data>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
+    <com.google.android.material.card.MaterialCardView
         android:layout_height="wrap_content"
-        android:paddingBottom="16dp">
-
-        <TextView
-            android:id="@+id/textViewTitle"
-            android:layout_width="wrap_content"
+        android:layout_width="match_parent"
+        app:cardElevation="10dp"
+        app:cardCornerRadius="8dp"
+        android:layout_margin="8dp">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="0dp"
-            android:text="@={article.nom}"
-            app:layout_constraintBottom_toBottomOf="@+id/ratingBarEnvie"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/ratingBarEnvie" />
+            android:paddingBottom="16dp">
 
-        <RatingBar
-            android:id="@+id/ratingBarEnvie"
-            style="@style/Widget.AppCompat.RatingBar.Indicator"
-            android:rating="@{(float)article.degreEnvie}"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/textViewTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="0dp"
+                android:text="@={article.nom}"
+                app:layout_constraintBottom_toBottomOf="@+id/ratingBarEnvie"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/ratingBarEnvie" />
+
+            <RatingBar
+                android:id="@+id/ratingBarEnvie"
+                style="@style/Widget.AppCompat.RatingBar.Indicator"
+                android:rating="@{(float)article.degreEnvie}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+
 </layout>

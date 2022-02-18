@@ -1,10 +1,13 @@
 package com.quentinrouet.androkado;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 
 import java.util.ArrayList;
 
@@ -14,6 +17,7 @@ public class ListArticleActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_article);
+
         //TODO Je récupère mon RecyclerView
         RecyclerView rvArticles = findViewById(R.id.recyclerViewArticles);
         //TODO Je donne l'instruction d'affichage à mon RecyclerView (comment j'affiche)
@@ -48,5 +52,16 @@ public class ListArticleActivity extends AppCompatActivity {
         ArticleAdapter adapter = new ArticleAdapter(al);
         //TODO J'affecte mon adapter à ma RecyclerView
         rvArticles.setAdapter(adapter);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_list_activity,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        return super.onOptionsItemSelected(item);
     }
 }
