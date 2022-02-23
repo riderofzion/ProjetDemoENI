@@ -6,13 +6,13 @@
     <data>
         <variable
             name="article"
-            type="com.quentinrouet.androkado.Article" />
+            type="com.quentinrouet.androkado.bo.Article" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".DetailActivity">
+        tools:context=".activity.DetailActivity">
 
         <TextView
             android:id="@+id/textViewTitle"

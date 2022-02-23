@@ -1,13 +1,19 @@
-package com.quentinrouet.androkado;
+package com.quentinrouet.androkado.activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import com.quentinrouet.androkado.bo.Article;
+import com.quentinrouet.androkado.adapter.ArticleAdapter;
+import com.quentinrouet.androkado.R;
+import com.quentinrouet.androkado.dao.ArticleDao;
 
 import java.util.ArrayList;
 
@@ -24,34 +30,12 @@ public class ListArticleActivity extends AppCompatActivity {
         //TODO (LinearLayout Vertical)
         rvArticles.setLayoutManager(new LinearLayoutManager(this));
         //TODO Je créé mon adapter
-        Article articleTest1 = new Article("Pain au chocolat",
-                "Viennoiserie au chocolat",
-                "https://wikipedia.org/wiki/Pain_au_chocolat",
-                1.1f,
-                4.0,
-                true
-        );
-        Article articleTest2 = new Article("Croissant",
-                "Viennoiserie sans chocolat",
-                "https://wikipedia.org/wiki/Croissant",
-                1.1f,
-                5.0,
-                true
-        );
-        Article articleTest3 = new Article("Baguette de pain",
-                "Essentiel",
-                "https://wikipedia.org/wiki/Pain",
-                0.9f,
-                3.0,
-                false
-        );
-        ArrayList<Article> al = new ArrayList<Article>();
-        al.add(articleTest1);
-        al.add(articleTest2);
-        al.add(articleTest3);
-        ArticleAdapter adapter = new ArticleAdapter(al);
+
+        ArticleAdapter adapter = new ArticleAdapter((ArrayList<Article>) new ArticleDao(this).get(this));
         //TODO J'affecte mon adapter à ma RecyclerView
         rvArticles.setAdapter(adapter);
+
+
     }
 
     @Override
@@ -62,6 +46,8 @@ public class ListArticleActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if(item.getItemId() == R.id.itemConfiguration)
+            startActivity(new Intent(this,ConfigurationActivity.class));
         return super.onOptionsItemSelected(item);
     }
 }

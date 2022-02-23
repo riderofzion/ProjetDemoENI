@@ -1,4 +1,4 @@
-package com.quentinrouet.androkado;
+package com.quentinrouet.androkado.activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,6 +10,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import com.quentinrouet.androkado.bo.Article;
+import com.quentinrouet.androkado.adapter.ArticleAdapter;
+import com.quentinrouet.androkado.R;
 import com.quentinrouet.androkado.databinding.ActivityDetailBinding;
 
 public class DetailActivity extends AppCompatActivity {

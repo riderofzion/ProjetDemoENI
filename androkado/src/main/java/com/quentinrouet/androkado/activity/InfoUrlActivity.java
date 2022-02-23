@@ -1,9 +1,12 @@
-package com.quentinrouet.androkado;
+package com.quentinrouet.androkado.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.widget.TextView;
+
+import com.quentinrouet.androkado.bo.Article;
+import com.quentinrouet.androkado.R;
 
 public class InfoUrlActivity extends AppCompatActivity {
 

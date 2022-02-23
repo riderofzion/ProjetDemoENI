@@ -1,4 +1,4 @@
-package com.quentinrouet.androkado;
+package com.quentinrouet.androkado.bo;
 
 import android.os.Parcel;
 import android.os.Parcelable;
@@ -7,6 +7,7 @@ import android.os.Parcelable;
  * Created by quentin for Constraint Layout on 15/02/2022.
  */
 public class Article implements Parcelable {
+    private long id;
     private String nom, description, url;
     private float prix;
     private double degreEnvie;
@@ -29,6 +30,10 @@ public class Article implements Parcelable {
         prix = in.readFloat();
         degreEnvie = in.readDouble();
         isAchete = in.readByte() != 0;
+    }
+
+    public Article() {
+
     }
 
     @Override
@@ -57,6 +62,7 @@ public class Article implements Parcelable {
             return new Article[size];
         }
     };
+
 
     public String getNom() {
         return nom;
@@ -104,5 +110,13 @@ public class Article implements Parcelable {
 
     public void setAchete(boolean achete) {
         isAchete = achete;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 }

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.quentinrouet.androkado">
+    package="com.quentinrouet.swapi">
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:allowBackup="true"
@@ -10,13 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ConstraintLayout">
         <activity
-            android:name=".activity.AddEditActivity"
-            android:exported="false" />
-        <activity
-            android:name=".activity.ConfigurationActivity"
-            android:exported="false" />
-        <activity
-            android:name=".activity.ListArticleActivity"
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,13 +19,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".activity.InfoUrlActivity"
-            android:exported="false"
-            android:theme="@style/Theme.NoActionBar" />
-        <activity
-            android:name=".activity.DetailActivity"
-            android:exported="false" />
     </application>
 
 </manifest>

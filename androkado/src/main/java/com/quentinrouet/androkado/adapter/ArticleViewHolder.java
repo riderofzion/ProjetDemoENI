@@ -1,4 +1,4 @@
-package com.quentinrouet.androkado;
+package com.quentinrouet.androkado.adapter;
 
 import android.view.View;
 

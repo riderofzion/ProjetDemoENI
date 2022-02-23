@@ -5,12 +5,11 @@
     <data>
         <variable
             name="article"
-            type="com.quentinrouet.androkado.Article" />
+            type="com.quentinrouet.androkado.bo.Article" />
     </data>
     <com.google.android.material.card.MaterialCardView
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        app:cardElevation="10dp"
         app:cardCornerRadius="8dp"
         android:layout_margin="8dp">
         <androidx.constraintlayout.widget.ConstraintLayout

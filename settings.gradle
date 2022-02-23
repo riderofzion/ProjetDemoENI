@@ -10,3 +10,4 @@ rootProject.name = "Constraint Layout"
 include ':app'
 include ':mod2tp'
 include ':androkado'
+include ':swapi'
