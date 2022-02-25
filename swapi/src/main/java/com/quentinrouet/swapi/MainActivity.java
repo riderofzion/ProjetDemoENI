@@ -1,8 +1,17 @@
 package com.quentinrouet.swapi;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Service;
+import android.content.ComponentName;
+import android.content.Intent;
+import android.content.ServiceConnection;
 import android.os.Bundle;
+import android.os.IBinder;
+import android.view.Menu;
+import android.view.MenuItem;
 
 import com.quentinrouet.swapi.bo.Planet;
 
@@ -16,14 +25,18 @@ import java.util.ArrayList;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Headers;
+import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
+import okhttp3.RequestBody;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
+import okio.BufferedSink;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements ServiceConnection {
     private final OkHttpClient client = new OkHttpClient();
     private ArrayList<Planet> alPlanet = new ArrayList<>();
+    private MyBddService.BddBinder monBinderBdd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,10 +66,37 @@ public class MainActivity extends AppCompatActivity {
                         String climate = planet.getString("climate");
                         alPlanet.add(new Planet(name,diameter,population,climate));
                     }
+                    bindService(
+                            new Intent(MainActivity.this,MyBddService.class),
+                                    MainActivity.this,
+                                    Service.BIND_AUTO_CREATE
+                    );
+                    //monBinderBdd.getArrayListPlanet();
                 }catch (JSONException e){
                     e.printStackTrace();
                 }
             }
         });
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
+        monBinderBdd = (MyBddService.BddBinder) iBinder;
+    }
+
+    @Override
+    public void onServiceDisconnected(ComponentName componentName) {
+
     }
 }
